@@ -17,4 +17,4 @@ docker run -d --name ssl-auto-gen \
 jrcs/letsencrypt-nginx-proxy-companion
 
 
-docker run -d --expose 80 --expose 443 --name schoolhub_api_gateway  -e "VIRTUAL_HOST=api.schoolhubb.com" -e "LETSENCRYPT_HOST=api.schoolhubb.com" -e "LETSENCRYPT_EMAIL=api@schoolhubb.com" cyberadvance/schoolhub-api-gateway
+docker run -d --expose 80 --expose 443 --name casan_service_gateway  -e "VIRTUAL_HOST=casan-sevice.lamunphan.com" -e "LETSENCRYPT_HOST=casan-sevice.lamunphan.com" -e "LETSENCRYPT_EMAIL=casan@lamunphan.com" cyberadvance/casan-service-gateway
