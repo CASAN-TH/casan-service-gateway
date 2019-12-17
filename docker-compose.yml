@@ -28,6 +28,16 @@ services:
       - AMQP_URL=amqp://18.136.211.198
     deploy:
       replicas: 1
+
+  catalog:
+    image: cyberadvance/catalog-service
+    ports:
+      - "3002:3000"
+    environment:
+      - MONGO_DB_URI=mongodb://3.0.93.150:3099/sch-db
+      - AMQP_URL=amqp://18.136.211.198
+    deploy:
+      replicas: 1
       
 
   
