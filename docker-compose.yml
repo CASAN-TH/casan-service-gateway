@@ -38,6 +38,15 @@ services:
       - AMQP_URL=amqp://18.136.211.198
     deploy:
       replicas: 1
-      
+
+  acc-sale:
+    image: cyberadvance/acc-sale-service
+    ports:
+      - "3003:3000"
+    environment: 
+      - MONGO_DB_URI=mongodb://3.0.93.150:3099/acc-db
+      - AMQP_URL=amqp://18.136.211.198
+    deploy:
+      replicas: 1
 
   
