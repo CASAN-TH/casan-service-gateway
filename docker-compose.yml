@@ -24,71 +24,28 @@ services:
     ports:
       - "3001:3000"
     environment:
-      - MONGO_DB_URI=mongodb://54.255.180.155:3099/sch-db
+      - MONGO_DB_URI=mongodb://54.255.180.155:3099/auth-db
       - AMQP_URL=amqp://18.136.211.198
-      # - MONGO_DB_URI=mongodb://3.0.93.150:3099/sch-db
-      # - AMQP_URL=amqp://18.136.211.198
     deploy:
       replicas: 1
 
-  catalog:
-    image: cyberadvance/catalog-service
+  lov:
+    image: cyberadvance/lov-service
     ports:
       - "3002:3000"
     environment:
-      - MONGO_DB_URI=mongodb://54.255.180.155:3099/sch-db
+      - MONGO_DB_URI=mongodb://54.255.180.155:3099/lov-db
       - AMQP_URL=amqp://18.136.211.198
-      # - MONGO_DB_URI=mongodb://3.0.93.150:3099/sch-db
-      # - AMQP_URL=amqp://18.136.211.198
     deploy:
       replicas: 1
 
-  customerprofile:
-    image: cyberadvance/customer-profile-service
+  proposal:
+    image: cyberadvance/pruposal-service
     ports:
       - "3003:3000"
     environment:
-      - MONGO_DB_URI=mongodb://54.255.180.155:3099/sch-db
+      - MONGO_DB_URI=mongodb://54.255.180.155:3099/proposal-db
       - AMQP_URL=amqp://18.136.211.198
-      # - MONGO_DB_URI=mongodb://3.0.93.150:3099/sch-db
-      # - AMQP_URL=amqp://18.136.211.198
-    deploy:
-      replicas: 1
-
-  feature:
-    image: cyberadvance/feature-service
-    ports:
-      - "3004:3000"
-    environment:
-      - MONGO_DB_URI=mongodb://54.255.180.155:3099/sch-db
-      - AMQP_URL=amqp://18.136.211.198
-      # - MONGO_DB_URI=mongodb://3.0.93.150:3099/sch-db
-      # - AMQP_URL=amqp://18.136.211.198
-    deploy:
-      replicas: 1
-
-  cart:
-    image: cyberadvance/cart-app-service
-    ports:
-      - "3005:3000"
-    environment:
-      - MONGO_DB_URI=mongodb://54.255.180.155:3099/sch-db
-      - AMQP_URL=amqp://18.136.211.198
-      # - MONGO_DB_URI=mongodb://3.0.93.150:3099/sch-db
-      # - AMQP_URL=amqp://18.136.211.198
-    deploy:
-      replicas: 1
-
-  web:
-    image: cyberadvance/casan-service-gateway
-    ports: 
-      - "80:80"
-    depends_on:
-      - auth
-      - catalog
-      - customerprofile
-      - feature
-      - cart
     deploy:
       replicas: 1
   
