@@ -46,6 +46,8 @@ services:
     environment:
       - MONGO_DB_URI=mongodb://54.255.180.155:3099/proposal-db
       - AMQP_URL=amqp://18.136.211.198
+      - AWS_ACCESS_KEY=AKIAZND2HCJK4TIT3D5I
+      - AWS_SECRET_ACCESS_KEY=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
     deploy:
       replicas: 1
   
